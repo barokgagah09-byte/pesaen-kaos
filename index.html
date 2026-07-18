@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Haul Ke-28</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white p-4">
+<div class="max-w-lg mx-auto border border-yellow-600 rounded-2xl p-6">
+<h1 class="text-3xl font-bold">T-SHIRT <span class="text-yellow-500">HAUL KE-28</span></h1>
+<p class="text-sm mt-2">ABAH SEPUH SUKAMANDI AL-MU'AWANAH</p>
+
+<img id="foto" src="https://via.placeholder.com/600x800/111111/D4AF37?text=FOTO+KAOS+HITAM" class="w-full h-96 object-cover rounded-xl mt-6 border border-yellow-600">
+
+<div class="mt-6">
+<p class="text-xs text-yellow-500 font-bold">1. WARNA</p>
+<div class="grid grid-cols-2 gap-2 mt-2">
+<button onclick="setWarna('HITAM')" class="border border-yellow-500 p-3 rounded-xl">HITAM</button>
+<button onclick="setWarna('PUTIH')" class="border border-white/20 p-3 rounded-xl">PUTIH</button>
+</div>
+
+<p class="text-xs text-yellow-500 font-bold mt-4">2. MODEL</p>
+<div class="grid gap-2 mt-2">
+<button onclick="setModel('PENDEK')" class="border p-3 rounded-xl flex justify-between"><span>PENDEK</span><b>Rp 115.000</b></button>
+<button onclick="setModel('PANJANG')" class="border-2 border-yellow-500 bg-yellow-500/20 p-3 rounded-xl flex justify-between"><span>PANJANG</span><b>Rp 125.000</b></button>
+</div>
+
+<p class="text-xs text-yellow-500 font-bold mt-4">3. UKURAN</p>
+<div class="grid grid-cols-5 gap-2 mt-2">
+<button onclick="setUk('S')" class="border p-2 rounded">S</button>
+<button onclick="setUk('M')" class="border p-2 rounded">M</button>
+<button onclick="setUk('L')" class="border p-2 rounded">L</button>
+<button onclick="setUk('XL')" class="border p-2 rounded">XL</button>
+<button onclick="setUk('2XL')" class="border p-2 rounded">2XL</button>
+</div>
+
+<input id="nama" placeholder="Nama kamu" class="w-full mt-4 p-3 rounded bg-white/10 border border-white/20">
+<p id="total" class="text-center text-xl font-bold text-yellow-500 mt-4">Rp 125.000</p>
+
+<button onclick="orderWA()" class="w-full bg-green-500 text-black font-bold p-4 rounded-xl mt-4">ORDER WHATSAPP</button>
+</div>
+</div>
+
+<script>
+let warna='HITAM', model='PANJANG', ukuran='L';
+let harga=125000;
+function setWarna(w){warna=w; alert('Warna: '+w)}
+function setModel(m){model=m; harga=m=='PANJANG'?125000:115000; document.getElementById('total').innerText='Rp '+harga.toLocaleString('id-ID')}
+function setUk(u){ukuran=u}
+function orderWA(){
+let nama=document.getElementById('nama').value||'Hamba Allah';
+let text=`Halo H. Barok, saya mau pesan Haul 28:%0ANama: ${nama}%0AWarna: ${warna}%0AModel: ${model}%0AUkuran: ${ukuran}%0ATotal: Rp ${harga}`;
+window.open('https://wa.me/6287736330469?text='+text,'_blank');
+}
+</script>
+</body>
+</html>
