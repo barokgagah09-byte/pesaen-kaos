@@ -3,46 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Haul Ke-28 - Abah Sepuh</title>
+<title>Haul Ke-28</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-black text-white">
 <div class="max-w-2xl mx-auto p-4">
-<div class="rounded-2xl border border-yellow-600 p-6 bg-zinc-900">
-<h1 class="text-3xl font-extrabold">T-SHIRT <span class="text-yellow-500">HAUL KE-28</span></h1>
-<p class="text-sm mt-1">ABAH SEPUH SUKAMANDI AL-MU'AWANAH</p>
+<div class="rounded-2xl border-2 border-yellow-600 p-6 bg-zinc-900">
+<h1 class="text-3xl font-bold">T-SHIRT <span class="text-yellow-500">HAUL 28</span></h1>
+
 <img id="mainImg" src="foto-hitam.webp" class="w-full h-[500px] object-cover rounded-xl mt-6 border-2 border-yellow-600">
+
 <p class="text-xs text-yellow-500 font-bold mt-6">1. WARNA</p>
-<div class="grid grid-cols-2 gap-2 mt-2">
-<button onclick="setWarna('HITAM')" id="btn-HITAM" class="border-2 border-yellow-500 bg-yellow-500/20 p-3 rounded-xl font-bold">HITAM</button>
-<button onclick="setWarna('PUTIH')" id="btn-PUTIH" class="border border-white/20 p-3 rounded-xl font-bold">PUTIH</button>
+<div class="grid grid-cols-2 gap-3 mt-2">
+<button id="b-hitam" onclick="setWarna('HITAM')" class="p-3 rounded-xl font-bold border-2 border-yellow-500 bg-yellow-500/20">HITAM</button>
+<button id="b-putih" onclick="setWarna('PUTIH')" class="p-3 rounded-xl font-bold border border-white/30">PUTIH</button>
 </div>
-<p class="text-xs text-yellow-500 font-bold mt-4">2. MODEL</p>
-<div class="grid gap-2 mt-2">
-<button onclick="setModel('PENDEK')" id="model-PENDEK" class="border border-white/20 p-3 rounded-xl flex justify-between"><span>PENDEK</span><b>Rp 115k</b></button>
-<button onclick="setModel('PANJANG')" id="model-PANJANG" class="border-2 border-yellow-500 bg-yellow-500/20 p-3 rounded-xl flex justify-between"><span>PANJANG</span><b>Rp 125k</b></button>
+
+<p class="text-xs text-yellow-500 font-bold mt-5">2. MODEL</p>
+<div class="grid gap-3 mt-2">
+<button id="b-pendek" onclick="setModel('PENDEK')" class="p-3 rounded-xl border border-white/30 flex justify-between"><span>PENDEK</span><b>Rp 115k</b></button>
+<button id="b-panjang" onclick="setModel('PANJANG')" class="p-3 rounded-xl border-2 border-yellow-500 bg-yellow-500/20 flex justify-between"><span>PANJANG</span><b>Rp 125k</b></button>
 </div>
-<p class="text-xs text-yellow-500 font-bold mt-4">3. UKURAN</p>
+
+<p class="text-xs text-yellow-500 font-bold mt-5">3. UKURAN</p>
 <div class="grid grid-cols-5 gap-2 mt-2">
-<button onclick="setUk('S')" class="border p-2 rounded">S</button>
-<button onclick="setUk('M')" class="border p-2 rounded">M</button>
-<button onclick="setUk('L')" class="border p-2 rounded">L</button>
-<button onclick="setUk('XL')" class="border p-2 rounded">XL</button>
-<button onclick="setUk('2XL')" class="border p-2 rounded">2XL</button>
+<button id="u-S" onclick="setUk('S')" class="p-2 rounded border">S</button>
+<button id="u-M" onclick="setUk('M')" class="p-2 rounded border">M</button>
+<button id="u-L" onclick="setUk('L')" class="p-2 rounded border-2 border-yellow-500 bg-yellow-500/20">L</button>
+<button id="u-XL" onclick="setUk('XL')" class="p-2 rounded border">XL</button>
+<button id="u-2XL" onclick="setUk('2XL')" class="p-2 rounded border">2XL</button>
 </div>
-<input id="nama" placeholder="Nama Pemesan" class="w-full mt-4 p-3 rounded-xl bg-white/10 border border-white/20">
-<div class="mt-3 text-center bg-yellow-500/10 border border-yellow-500/30 p-3 rounded-xl">
-<p id="total" class="text-xl font-bold text-yellow-500">Rp 125.000</p>
+
+<input id="nama" placeholder="Nama Pemesan" class="w-full mt-5 p-3 rounded-xl bg-white/10 border">
+<p id="total" class="text-center text-xl font-bold text-yellow-500 mt-4">Rp 125.000</p>
+<button onclick="orderWA()" class="w-full mt-3 bg-green-500 text-black font-extrabold p-4 rounded-xl">ORDER WHATSAPP</button>
 </div>
-<button onclick="orderWA()" class="w-full mt-4 bg-green-500 text-black font-extrabold p-4 rounded-xl">ORDER VIA WHATSAPP</button>
 </div>
-</div>
+
 <script>
-let warna='HITAM', model='PANJANG', ukuran='L', harga=125000;
-function setWarna(w){warna=w; document.getElementById('mainImg').src = w=='PUTIH'? 'foto-putih.webp' : 'foto-hitam.webp';}
-function setModel(m){model=m; harga = m=='PANJANG'? 125000 : 115000; document.getElementById('total').innerText = 'Rp ' + harga.toLocaleString('id-ID');}
-function setUk(u){ukuran=u}
-function orderWA(){let nama=document.getElementById('nama').value||'Hamba Allah'; let text=`Halo H. Barok, saya mau pesan Haul 28:%0ANama: ${nama}%0AWarna: ${warna}%0AModel: ${model}%0AUkuran: ${ukuran}%0ATotal: Rp ${harga}%0AFormat: ${nama}-${ukuran}-${model}-${warna}`; window.open('https://wa.me/6287736330469?text='+text,'_blank');}
+let warna='HITAM', model='PANJANG', ukuran='L';
+let harga=125000;
+function setWarna(w){
+warna=w;
+document.getElementById('mainImg').src = w=='PUTIH'? 'foto-putih.webp' : 'foto-hitam.webp';
+document.getElementById('b-hitam').className = w=='HITAM'? 'p-3 rounded-xl font-bold border-2 border-yellow-500 bg-yellow-500/20' : 'p-3 rounded-xl font-bold border border-white/30';
+document.getElementById('b-putih').className = w=='PUTIH'? 'p-3 rounded-xl font-bold border-2 border-yellow-500 bg-yellow-500/20' : 'p-3 rounded-xl font-bold border border-white/30';
+}
+function setModel(m){
+model=m;
+harga = m=='PANJANG'? 125000 : 115000;
+document.getElementById('b-pendek').className = m=='PENDEK'? 'p-3 rounded-xl border-2 border-yellow-500 bg-yellow-500/20 flex justify-between' : 'p-3 rounded-xl border border-white/30 flex justify-between';
+document.getElementById('b-panjang').className = m=='PANJANG'? 'p-3 rounded-xl border-2 border-yellow-500 bg-yellow-500/20 flex justify-between' : 'p-3 rounded-xl border border-white/30 flex justify-between';
+document.getElementById('total').innerText = 'Rp ' + harga.toLocaleString('id-ID');
+}
+function setUk(u){
+ukuran=u;
+['S','M','L','XL','2XL'].forEach(k=>{
+document.getElementById('u-'+k).className = k==u? 'p-2 rounded border-2 border-yellow-500 bg-yellow-500/20 font-bold' : 'p-2 rounded border';
+});
+}
+function orderWA(){
+let nama=document.getElementById('nama').value||'Hamba Allah';
+let txt=`Halo H.Barok, pesan Haul 28:%0ANama: ${nama}%0AWarna: ${warna}%0AModel: ${model}%0AUkuran: ${ukuran}%0ATotal: Rp ${harga}%0AFormat: ${nama}-${ukuran}-${model}-${warna}`;
+window.open('https://wa.me/6287736330469?text='+txt,'_blank');
+}
 </script>
 </body>
 </html>
