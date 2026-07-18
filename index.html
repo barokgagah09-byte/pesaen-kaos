@@ -79,9 +79,18 @@ function update(){
   document.getElementById('keterangan').innerText = `${model} ${ukuran} - ${warna} ${ukuran==='2XL'? '+5rb' : 'Normal'}`;
 }
 function orderWA(){
-  let nama = document.getElementById('nama').value || 'Tanpa Nama';
-  let teks = `Mantep nih ji, gw pesen kaos:%0A%0A- Nama: ${nama}%0A- Warna: ${warna}%0A- Model: ${model}%0A- Ukuran: ${ukuran}%0A- Total: ${document.getElementById('total').innerText}%0A%0ALink: https://barokgagah09-byte.github.io/pesaen-kaos/`;
-  window.open(`https://wa.me/?text=${teks}`, '_blank');
+  let nama = document.getElementById('nama').value;
+  if(nama === ''){ alert('Isi Nama dulu ji!'); return; }
+  let harga = document.getElementById('total').innerText;
+  let teks = `Halo kak, saya mau pesen kaos Haul Ke-28:%0A%0A` +
+             `*Nama:* ${nama}%0A` +
+             `*Warna:* ${warna}%0A` +
+             `*Model:* ${model}%0A` +
+             `*Ukuran:* ${ukuran}%0A` +
+             `*Total:* ${harga}%0A%0A` +
+             `Mohon di proses ya kak`;
+
+  window.location.href = `https://wa.me/6287736330469?text=${teks}`;
 }
 update();
 </script>
